@@ -109,6 +109,7 @@
   <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="449.6,653.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="njl:JObject" Name="HttpResponseJson" />
+      <Variable x:TypeArguments="x:String" Name="FinalExcelPath" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -119,20 +120,25 @@
     <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="387.2,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Process\GetDataFromAPI.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Process\GetDataFromAPI.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_RangeInDays">
-          <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="CInt(in_Config(&quot;RangeInDays&quot;))" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_TransactionItem">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem" />
-        </InArgument>
-        <OutArgument x:TypeArguments="njl:JObject" x:Key="out_HttpResponseJson">
-          <VisualBasicReference x:TypeArguments="njl:JObject" ExpressionText="HttpResponseJson" />
-        </OutArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_RangeInDays">[CInt(in_Config("RangeInDays"))]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+        <OutArgument x:TypeArguments="njl:JObject" x:Key="out_HttpResponseJson">[HttpResponseJson]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="WriteDataToExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="387.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Process\WriteDataToExcel.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+        <InArgument x:TypeArguments="njl:JObject" x:Key="in_HttpResponseJson">
+          <VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="HttpResponseJson" />
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_FinalExcelPath">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="FinalExcelPath" />
+        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_FolderWithFinalExcel">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;FolderWithFinalExcel&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TransactionItem">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>

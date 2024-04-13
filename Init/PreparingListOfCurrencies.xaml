@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>850.4,1465.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>850.4,1587.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PreparingListOfCurrencies_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -79,15 +79,24 @@
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
       <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PreparingListOfCurrencies" sap:VirtualizedContainerService.HintSize="550.4,1400.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PreparingListOfCurrencies" sap:VirtualizedContainerService.HintSize="550.4,1522.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,142.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;I am starting to create a collection of currency codes&quot;]" />
+    <Assign DisplayName="Assign - Initialize out_CurrencyCodesColl" sap:VirtualizedContainerService.HintSize="488,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:ICollection(x:String)">[out_CurrencyCodesColl]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:ICollection(x:String)">[New List(Of String)]</InArgument>
+      </Assign.Value>
+    </Assign>
     <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each - CurrencyCodesString" sap:VirtualizedContainerService.HintSize="488,1106.4" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_CurrencyCodesStr.Split(&quot;;&quot;)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
