@@ -133,7 +133,7 @@
             <Assign.Value>
               <InArgument x:TypeArguments="x:String" xml:space="preserve">["Cześć,"+vbNewLine+
 vbNewLine+
-"Generowanie analizy kursów walut z ostatnich 356 dni zakończone pomyślnie. Poniżej przedstawiam raport dla poszczególnych walut:"+vbNewLine+
+"Generowanie analizy kursów walut z ostatnich 365 dni zakończone pomyślnie. Poniżej przedstawiam raport dla poszczególnych walut:"+vbNewLine+
 vbNewLine]</InArgument>
             </Assign.Value>
           </Assign>
@@ -177,9 +177,7 @@ vbNewLine +
           <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[MailMessageBody]" DisplayName="Send Outlook Mail Message - Succes" sap:VirtualizedContainerService.HintSize="529.6,169.6" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="Robot NBP - Zakończono pomyślnie" To="[in_RecipientEmail]">
             <ui:SendOutlookMail.Files>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                <InArgument x:TypeArguments="x:String">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_FinalExcelPath" />
-                </InArgument>
+                <InArgument x:TypeArguments="x:String">[in_FinalExcelPath]</InArgument>
               </scg:List>
             </ui:SendOutlookMail.Files>
           </ui:SendOutlookMail>
@@ -192,7 +190,7 @@ vbNewLine +
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Cześć,&quot;+vbNewLine+&#xD;&#xA;vbNewLine+&#xD;&#xA;&quot;Generowanie analizy kursów walut nie powiodło się:&quot;+vbNewLine+&#xD;&#xA;vbNewLine+&#xD;&#xA;in_SystemException.Message+vbNewLine+&#xD;&#xA;vbNewLine+&#xD;&#xA;&quot;Pozdrawiam,&quot;+ vbNewLine +&#xD;&#xA;&quot;Robot Władek&quot;]" DisplayName="Send Outlook Mail Message - Fail" sap:VirtualizedContainerService.HintSize="353.6,169.6" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="Robot NBP - Zakończono z błędem" To="[in_RecipientEmail]">
+          <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Cześć,&quot;+vbNewLine+&#xA;vbNewLine+&#xA;&quot;Generowanie analizy kursów walut nie powiodło się:&quot;+vbNewLine+&#xA;vbNewLine+&#xA;in_SystemException.Message+vbNewLine+&#xA;vbNewLine+&#xA;&quot;Pozdrawiam,&quot;+ vbNewLine +&#xA;&quot;Robot Władek&quot;]" DisplayName="Send Outlook Mail Message - Fail" sap:VirtualizedContainerService.HintSize="353.6,169.6" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="Robot NBP - Zakończono z błędem" To="[in_RecipientEmail]">
             <ui:SendOutlookMail.Files>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
             </ui:SendOutlookMail.Files>
