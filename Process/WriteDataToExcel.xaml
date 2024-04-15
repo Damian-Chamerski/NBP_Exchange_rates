@@ -18,7 +18,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>850.4,2893.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>677.6,2924.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Workflow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -138,9 +138,13 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="WriteDataToExcel" sap:VirtualizedContainerService.HintSize="688,2828.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="WriteDataToExcel" sap:VirtualizedContainerService.HintSize="688,2860" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="FinalDataTable" />
     </Sequence.Variables>
@@ -159,7 +163,7 @@
         <InArgument x:TypeArguments="x:String">["Kurs "+in_TransactionItem]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" DisplayName="For Each - HttpResponseJson(&quot;rates&quot;)" sap:VirtualizedContainerService.HintSize="625.6,503.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_HttpResponseJson(&quot;rates&quot;)]">
+    <ui:ForEach x:TypeArguments="njl:JToken" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText=".reverse was used to sort the data in Excel from the newest" DisplayName="For Each - HttpResponseJson(&quot;rates&quot;)" sap:VirtualizedContainerService.HintSize="625.6,534.4" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_HttpResponseJson(&quot;rates&quot;).Reverse]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="njl:JToken">
           <ActivityAction.Argument>
@@ -175,6 +179,11 @@
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
     <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="625.6,1832.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" ShowExcelWindow="False">
       <ueab:ExcelProcessScopeX.Body>
@@ -213,12 +222,8 @@
               <InvokeMethod.TargetObject>
                 <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[io_ReportDict]</InArgument>
               </InvokeMethod.TargetObject>
-              <InArgument x:TypeArguments="x:String">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem" />
-              </InArgument>
-              <InArgument x:TypeArguments="x:String">
-                <Literal x:TypeArguments="x:String">Analiza utworzona pomyślnie</Literal>
-              </InArgument>
+              <InArgument x:TypeArguments="x:String">[in_TransactionItem]</InArgument>
+              <InArgument x:TypeArguments="x:String">Analiza utworzona pomyślnie</InArgument>
             </InvokeMethod>
             <ui:LogMessage DisplayName="Log Message - End WriteDataToExcel" sap:VirtualizedContainerService.HintSize="529.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Data was successfully saved in Excel&quot;]" />
           </Sequence>
