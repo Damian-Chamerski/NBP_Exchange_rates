@@ -1,16 +1,13 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="PreparingListOfCurrencies" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uasc="clr-namespace:UiPath.Activities.System.Collections;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="PreparingListOfCurrencies" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:uasc="clr-namespace:UiPath.Activities.System.Collections;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="out_CurrencyCodesColl" Type="OutArgument(scg:ICollection(x:String))" />
     <x:Property Name="in_CurrencyCodesStr" Type="InArgument(x:String)" />
-    <x:Property Name="out_ReportDict" Type="InArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="out_ReportDict" Type="OutArgument(scg:Dictionary(x:String, x:String))" />
   </x:Members>
-  <this:PreparingListOfCurrencies.out_ReportDict>
-    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" />
-  </this:PreparingListOfCurrencies.out_ReportDict>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>850.4,1755.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>850.4,1876.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>PreparingListOfCurrencies_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -92,7 +89,7 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PreparingListOfCurrencies" sap:VirtualizedContainerService.HintSize="608,1690.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PreparingListOfCurrencies" sap:VirtualizedContainerService.HintSize="608,1812" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -105,6 +102,14 @@
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="scg:ICollection(x:String)">[New List(Of String)]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign - Initialize out_ReportDict" sap:VirtualizedContainerService.HintSize="545.6,121.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[out_ReportDict]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[New Dictionary(Of String, String)]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each - CurrencyCodesString" sap:VirtualizedContainerService.HintSize="545.6,1297.6" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_CurrencyCodesStr.Split(&quot;;&quot;)]">
