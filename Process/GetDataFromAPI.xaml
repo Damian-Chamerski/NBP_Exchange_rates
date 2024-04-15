@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>850.4,2566.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>530.4,2566.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetDataFromAPI_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -195,12 +195,8 @@
                   <InvokeMethod.TargetObject>
                     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[io_ReportDict]</InArgument>
                   </InvokeMethod.TargetObject>
-                  <InArgument x:TypeArguments="x:String">
-                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String">
-                    <Literal x:TypeArguments="x:String">Brak danych dla tej waluty w NBP</Literal>
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String">[in_TransactionItem]</InArgument>
+                  <InArgument x:TypeArguments="x:String">Brak danych dla tej waluty w NBP</InArgument>
                 </InvokeMethod>
                 <Throw DisplayName="Throw - API Error - BusinessRuleException" Exception="[new BusinessRuleException(&quot;Wystąpił błąd podczas pobierania danych z API - prawdopodobnie błędny kod waluty: &quot;+HttpResponseStr)]" sap:VirtualizedContainerService.HintSize="353.6,113.6" sap2010:WorkflowViewState.IdRef="Throw_5" />
               </Sequence>
