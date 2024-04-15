@@ -18,7 +18,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>850.4,2711.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>850.4,2893.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Workflow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -140,10 +140,9 @@
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="WriteDataToExcel" sap:VirtualizedContainerService.HintSize="688,2646.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="WriteDataToExcel" sap:VirtualizedContainerService.HintSize="688,2828.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="FinalDataTable" />
-      <Variable x:TypeArguments="x:Boolean" Name="FinalExcelPathExist" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -177,19 +176,19 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="625.6,1650.4" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" ShowExcelWindow="False">
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="625.6,1832.8" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" ShowExcelWindow="False">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,1540.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,1723.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="529.6,1296" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" TemplatePath="Data\Output\KursyWalut_20240415.xlsx" UseTemplate="True" WorkbookPath="[in_FinalExcelPath]">
+            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File - in_FinalExcelPath" sap:VirtualizedContainerService.HintSize="529.6,1296" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" TemplatePath="Data\Output\KursyWalut_20240415.xlsx" UseTemplate="True" WorkbookPath="[in_FinalExcelPath]">
               <ueab:ExcelApplicationCard.Body>
                 <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                   <ActivityAction.Argument>
@@ -201,22 +200,27 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ueab:WriteRangeX Destination="[Excel.Sheet(in_TransactionItem).Range(&quot;A:B&quot;)]" DisplayName="Write DataTable to Excel" sap:VirtualizedContainerService.HintSize="433.6,200" sap2010:WorkflowViewState.IdRef="WriteRangeX_2" IgnoreEmptySource="False" Source="[FinalDataTable]" />
-                    <ueab:InsertExcelChartX InsertedChart="{x:Null}" ChartCategory="Line" ChartHeight="300" ChartType="xlLine" ChartWidth="600" DisplayName="Insert Chart" sap:VirtualizedContainerService.HintSize="433.6,276.8" sap2010:WorkflowViewState.IdRef="InsertExcelChartX_1" InsertIntoSheet="[Excel.Sheet(in_TransactionItem)]" Left="150" Range="[Excel.Sheet(in_TransactionItem).Range(&quot;A:B&quot;)]" Top="40" />
-                    <ueab:AutoFitX Columns="True" DisplayName="Autofit Range" sap:VirtualizedContainerService.HintSize="433.6,156" sap2010:WorkflowViewState.IdRef="AutoFitX_1" Range="[Excel.Sheet(in_TransactionItem).Range(&quot;A:B&quot;)]" Rows="True" />
-                    <ueab:DeleteSheetX DisplayName="Delete Sheet" sap:VirtualizedContainerService.HintSize="433.6,130.4" sap2010:WorkflowViewState.IdRef="DeleteSheetX_2" Sheet="[Excel.Sheet(&quot;Arkusz1&quot;)]" />
-                    <ueab:DeleteSheetX DisplayName="Delete Sheet" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="DeleteSheetX_3" Sheet="[Excel.Sheet(&quot;Sheet1&quot;)]" />
+                    <ueab:WriteRangeX Destination="[Excel.Sheet(in_TransactionItem).Range(&quot;A:B&quot;)]" DisplayName="Write DataTable to Excel - FinalDataTable" sap:VirtualizedContainerService.HintSize="433.6,200" sap2010:WorkflowViewState.IdRef="WriteRangeX_2" IgnoreEmptySource="False" Source="[FinalDataTable]" />
+                    <ueab:InsertExcelChartX InsertedChart="{x:Null}" ChartCategory="Line" ChartHeight="300" ChartType="xlLine" ChartWidth="600" DisplayName="Insert Chart - from A:B Data range" sap:VirtualizedContainerService.HintSize="433.6,276.8" sap2010:WorkflowViewState.IdRef="InsertExcelChartX_1" InsertIntoSheet="[Excel.Sheet(in_TransactionItem)]" Left="150" Range="[Excel.Sheet(in_TransactionItem).Range(&quot;A:B&quot;)]" Top="40" />
+                    <ueab:AutoFitX Columns="True" DisplayName="Autofit Range - in A:B Range" sap:VirtualizedContainerService.HintSize="433.6,156" sap2010:WorkflowViewState.IdRef="AutoFitX_1" Range="[Excel.Sheet(in_TransactionItem).Range(&quot;A:B&quot;)]" Rows="True" />
+                    <ueab:DeleteSheetX DisplayName="Delete Sheet - Arkusz1" sap:VirtualizedContainerService.HintSize="433.6,130.4" sap2010:WorkflowViewState.IdRef="DeleteSheetX_2" Sheet="[Excel.Sheet(&quot;Arkusz1&quot;)]" />
+                    <ueab:DeleteSheetX DisplayName="Delete Sheet - Sheet1" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="DeleteSheetX_3" Sheet="[Excel.Sheet(&quot;Sheet1&quot;)]" />
                   </Sequence>
                 </ActivityAction>
               </ueab:ExcelApplicationCard.Body>
             </ueab:ExcelApplicationCard>
-            <InvokeMethod DisplayName="Invoke Method - Add succes to report" sap:VirtualizedContainerService.HintSize="529.6,158.4" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Add">
+            <InvokeMethod DisplayName="Invoke Method - Add succes to report" sap:VirtualizedContainerService.HintSize="529.6,175.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Add">
               <InvokeMethod.TargetObject>
                 <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[io_ReportDict]</InArgument>
               </InvokeMethod.TargetObject>
-              <InArgument x:TypeArguments="x:String">[in_TransactionItem]</InArgument>
-              <InArgument x:TypeArguments="x:String">Brak danych dla tej waluty w NBP</InArgument>
+              <InArgument x:TypeArguments="x:String">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_TransactionItem" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String">
+                <Literal x:TypeArguments="x:String">Analiza utworzona pomyślnie</Literal>
+              </InArgument>
             </InvokeMethod>
+            <ui:LogMessage DisplayName="Log Message - End WriteDataToExcel" sap:VirtualizedContainerService.HintSize="529.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Data was successfully saved in Excel&quot;]" />
           </Sequence>
         </ActivityAction>
       </ueab:ExcelProcessScopeX.Body>

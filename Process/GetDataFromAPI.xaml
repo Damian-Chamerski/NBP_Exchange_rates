@@ -125,7 +125,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Start GetDataFromAPI" sap:VirtualizedContainerService.HintSize="478.4,182.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Warn]" Message="[&quot;Start downloading data from the NBP API&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - Start GetDataFromAPI" sap:VirtualizedContainerService.HintSize="478.4,182.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;Start downloading data from the NBP API&quot;]" />
     <ui:MultipleAssign DisplayName="Multiple Assign - Dates" sap:VirtualizedContainerService.HintSize="478.4,188" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
@@ -179,7 +179,7 @@
         <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
       </ui:HttpClient.UrlSegments>
     </ui:HttpClient>
-    <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="478.4,1301.6" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+    <ui:IfElseIf DisplayName="Else If - API Error Handling" sap:VirtualizedContainerService.HintSize="478.4,1301.6" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
       <ui:IfElseIf.ConditionBlocks>
         <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
           <ui:IfElseIfBlock BlockType="If" Condition="[HttpResponseStr.Length &lt; 100 and HttpResponseStr.Contains(&quot;Brak danych&quot;)]">
@@ -190,7 +190,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:LogMessage DisplayName="Log Message - API Error" sap:VirtualizedContainerService.HintSize="353.6,182.4" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Api returned an error, go to next Transaction Item: &quot;+ HttpResponseStr]" />
+                <ui:LogMessage DisplayName="Log Message - API Error BRE" sap:VirtualizedContainerService.HintSize="353.6,182.4" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Api returned an error, go to next Transaction Item: &quot;+ HttpResponseStr]" />
                 <InvokeMethod DisplayName="Invoke Method - Add API fail to report" sap:VirtualizedContainerService.HintSize="353.6,175.2" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Add">
                   <InvokeMethod.TargetObject>
                     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[io_ReportDict]</InArgument>

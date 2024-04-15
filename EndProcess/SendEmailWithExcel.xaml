@@ -11,7 +11,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>850.4,1780</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>850.4,1654.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SendEmailWithExcel_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -108,16 +108,16 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendEmailWithExcel" sap:VirtualizedContainerService.HintSize="688,1715.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendEmailWithExcel" sap:VirtualizedContainerService.HintSize="688,1589.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - Start SendEmailWithExcel" sap:VirtualizedContainerService.HintSize="625.6,182.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Trace]" Message="[&quot;I start sending the email with excel&quot;]" />
-    <If Condition="[in_SystemException is Nothing]" DisplayName="If - in_SystemException is Nothing" sap:VirtualizedContainerService.HintSize="625.6,1444" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[in_SystemException is Nothing]" DisplayName="If - in_SystemException is Nothing" sap:VirtualizedContainerService.HintSize="625.6,1318.4" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,1026.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,900.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="MailMessageBody" />
           </Sequence.Variables>
@@ -174,8 +174,7 @@ vbNewLine +
 "PS. Polecam Developera Damiana Chamerskiego"]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="529.6,125.6" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[MailMessageBody]" />
-          <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[MailMessageBody]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="529.6,169.6" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="Robot NBP - Zakończono pomyślnie" To="[in_RecipientEmail]">
+          <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[MailMessageBody]" DisplayName="Send Outlook Mail Message - Succes" sap:VirtualizedContainerService.HintSize="529.6,169.6" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="Robot NBP - Zakończono pomyślnie" To="[in_RecipientEmail]">
             <ui:SendOutlookMail.Files>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
                 <InArgument x:TypeArguments="x:String">
@@ -193,7 +192,7 @@ vbNewLine +
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Cześć,&quot;+vbNewLine+&#xD;&#xA;vbNewLine+&#xD;&#xA;&quot;Generowanie analizy kursów walut nie powiodło się:&quot;+vbNewLine+&#xD;&#xA;vbNewLine+&#xD;&#xA;in_SystemException.Message+vbNewLine+&#xD;&#xA;vbNewLine+&#xD;&#xA;&quot;Pozdrawiam,&quot;+ vbNewLine +&#xD;&#xA;&quot;Robot Władek&quot;]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="353.6,169.6" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="Robot NBP - Zakończono z błędem" To="[in_RecipientEmail]">
+          <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Cześć,&quot;+vbNewLine+&#xD;&#xA;vbNewLine+&#xD;&#xA;&quot;Generowanie analizy kursów walut nie powiodło się:&quot;+vbNewLine+&#xD;&#xA;vbNewLine+&#xD;&#xA;in_SystemException.Message+vbNewLine+&#xD;&#xA;vbNewLine+&#xD;&#xA;&quot;Pozdrawiam,&quot;+ vbNewLine +&#xD;&#xA;&quot;Robot Władek&quot;]" DisplayName="Send Outlook Mail Message - Fail" sap:VirtualizedContainerService.HintSize="353.6,169.6" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="Robot NBP - Zakończono z błędem" To="[in_RecipientEmail]">
             <ui:SendOutlookMail.Files>
               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
             </ui:SendOutlookMail.Files>

@@ -139,7 +139,7 @@
                       </scg:List>
                     </uasc:AppendItemToCollection.Items>
                   </uasc:AppendItemToCollection>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="353.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;Added currency {0} successfully&quot;, currentItem.Trim)]" />
+                  <ui:LogMessage DisplayName="Log Message - Success add currency" sap:VirtualizedContainerService.HintSize="353.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;Added currency {0} successfully&quot;, currentItem.Trim)]" />
                 </Sequence>
               </If.Then>
               <If.Else>
@@ -149,7 +149,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="353.6,182.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;Reject currency {0}&quot;, currentItem.Trim)]" />
+                  <ui:LogMessage DisplayName="Log Message - Currency code not added" sap:VirtualizedContainerService.HintSize="353.6,182.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[String.Format(&quot;Reject currency {0}&quot;, currentItem.Trim)]" />
                   <InvokeMethod DisplayName="Invoke Method - Add fail to report (3 digits)" sap:VirtualizedContainerService.HintSize="353.6,158.4" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Add">
                     <InvokeMethod.TargetObject>
                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[out_ReportDict]</InArgument>
